@@ -1,17 +1,12 @@
 export default class Books {
   constructor() {
     this.books = [];
-    // this.count = localStorage.getItem('count')
-    //   ? Number(localStorage.getItem('count'))
-    //   : 0;
   }
 
   addBook = (book) => {
     this.books.push(book);
     this.saveBooks();
     this.renderBooks();
-    // this.count += 1;
-    // localStorage.setItem('count', this.count);
   }
 
   removeBook = (id) => {
