@@ -2,7 +2,6 @@ import * as DisplaySections from './modules/displaySections.js';
 import Book from './modules/book.js';
 import Books from './modules/books.js';
 
-// const booksList = document.getElementById('books-list');
 const form = document.getElementById('form');
 const title = document.getElementById('title');
 const author = document.getElementById('author');
@@ -37,14 +36,3 @@ form.onsubmit = (e) => {
 
 books.getbooks();
 books.renderBooks();
-
-// const removeBtns = document.querySelectorAll('.remove-btn');
-// removeBtns.forEach((btn) => {
-//   btn.addEventListener('click', () => {
-//     books.removeBook(btn.dataset.id);
-//     count -= 1;
-//     localStorage.setItem('count', count);
-//     books.saveBooks();
-//     books.renderBooks();
-//   });
-// });
