@@ -1,16 +1,21 @@
+import { DateTime } from './modules/luxon.js';
 import * as DisplaySections from './modules/displaySections.js';
 import Book from './modules/book.js';
 import Books from './modules/books.js';
 
+const now = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+
 const form = document.getElementById('form');
 const title = document.getElementById('title');
 const author = document.getElementById('author');
-// const time = document.getElementById('time');
+const time = document.getElementById('time');
 const formSection = document.getElementById('form-section');
 const contact = document.getElementById('contact');
 const listLink = document.getElementById('list-link');
 const formLink = document.getElementById('form-link');
 const contactLink = document.getElementById('contact-link');
+
+time.innerHTML = now;
 
 formSection.style.display = 'none';
 contact.style.display = 'none';
