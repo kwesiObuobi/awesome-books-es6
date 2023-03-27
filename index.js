@@ -3,8 +3,6 @@ import * as DisplaySections from './modules/displaySections.js';
 import Book from './modules/book.js';
 import Books from './modules/books.js';
 
-const now = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
-
 const form = document.getElementById('form');
 const title = document.getElementById('title');
 const author = document.getElementById('author');
@@ -15,7 +13,10 @@ const listLink = document.getElementById('list-link');
 const formLink = document.getElementById('form-link');
 const contactLink = document.getElementById('contact-link');
 
-time.innerHTML = now;
+setInterval(() => {
+  const now = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+  time.innerHTML = now;
+}, 1000);
 
 formSection.style.display = 'none';
 contact.style.display = 'none';
