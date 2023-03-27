@@ -10,10 +10,12 @@ export default class Books {
   }
 
   removeBook = (id) => {
-    this.books = this.books.filter((book) => book.id !== id);
+    this.books = this.books.filter((book) => book.id !== Number(id));
+    this.saveBooks();
+    this.renderBooks();
   }
 
-  savebooks = () => {
+  saveBooks = () => {
     localStorage.setItem('books', JSON.stringify(this.books));
   }
 
@@ -29,13 +31,25 @@ export default class Books {
   renderBooks = () => {
     const bookList = document.getElementById('books-list');
     bookList.innerHTML = '';
+
     this.books.forEach((book) => {
-      bookList.innerHTML += `
-      <li class="book-item">
-        <p> ${book.title} by ${book.author} </p>
-        <button class="remove-btn" data-id="${book.id}" onclick="remove(${book.id})"> Remove </button>
-      </li>
-      `;
+      const li = document.createElement('li');
+      li.classList.add('book-item');
+
+      const p = document.createElement('p');
+      p.innerHTML = `${book.title} by ${book.author}`;
+
+      const btn = document.createElement('button');
+      btn.classList.add('remove-btn');
+      btn.innerHTML = 'Remove';
+
+      btn.addEventListener('click', () => {
+        this.removeBook(book.id);
+      });
+
+      li.appendChild(p);
+      li.appendChild(btn);
+      bookList.appendChild(li);
     });
   }
 }
